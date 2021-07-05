@@ -10,6 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
+                <outlet property="authorizeButton" destination="wvI-n1-nRg" id="eg0-bt-FI1"/>
+                <outlet property="loginTextField" destination="j4C-t3-XQv" id="ERm-Mn-eHD"/>
+                <outlet property="passwordTextField" destination="G9Z-w1-LuQ" id="DlA-JM-frR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -34,6 +37,18 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvI-n1-nRg">
+                    <rect key="frame" x="129" y="405" width="156" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="6jL-sS-D4X"/>
+                        <constraint firstAttribute="width" constant="156" id="vkD-N6-HaV"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                    <state key="normal" title="Authorize"/>
+                    <connections>
+                        <action selector="authorizeButtonDidTap:" destination="-1" eventType="touchUpInside" id="0Ji-sj-SUd"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -46,6 +61,8 @@
                 <constraint firstItem="G9Z-w1-LuQ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="36" id="bgl-pk-cdu"/>
                 <constraint firstItem="PEJ-UB-vWv" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="80" id="gpA-dP-aNX"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="j4C-t3-XQv" secondAttribute="trailing" constant="36" id="hLq-hU-Nx5"/>
+                <constraint firstItem="wvI-n1-nRg" firstAttribute="top" secondItem="G9Z-w1-LuQ" secondAttribute="bottom" constant="60" id="hVD-uF-YsI"/>
+                <constraint firstItem="wvI-n1-nRg" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="ngc-c8-qRV"/>
             </constraints>
             <point key="canvasLocation" x="-146" y="87"/>
         </view>
