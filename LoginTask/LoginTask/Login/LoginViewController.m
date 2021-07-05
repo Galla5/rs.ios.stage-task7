@@ -11,6 +11,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *loginTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *authorizeButton;
+@property (weak, nonatomic) IBOutlet UIView *secureContainer;
+@property (weak, nonatomic) IBOutlet UIButton *firstButton;
+@property (weak, nonatomic) IBOutlet UIButton *secondButton;
+@property (weak, nonatomic) IBOutlet UIButton *thirdButton;
 
 @end
 
@@ -20,6 +24,7 @@
     [super viewDidLoad];
     [self setupTextFields];
     [self setupButton];
+    [self setupSecureButtons];
 }
 
 - (void)setupTextFields {
@@ -50,6 +55,18 @@
     [self.authorizeButton setTitleColor:[[UIColor colorWithRed: 0.50 green: 0.64 blue: 0.93 alpha: 1.00] colorWithAlphaComponent: 0.5] forState: UIControlStateDisabled];
 }
 
+- (void)setupSecureButtons {
+    self.firstButton.layer.cornerRadius = 25;
+    self.secondButton.layer.cornerRadius = 25;
+    self.thirdButton.layer.cornerRadius = 25;
+    self.firstButton.layer.borderWidth = 1.5;
+    self.secondButton.layer.borderWidth = 1.5;
+    self.thirdButton.layer.borderWidth = 1.5;
+    self.firstButton.layer.borderColor = [UIColor colorWithRed: 0.50 green: 0.64 blue: 0.93 alpha: 1.00].CGColor;
+    self.secondButton.layer.borderColor = [UIColor colorWithRed: 0.50 green: 0.64 blue: 0.93 alpha: 1.00].CGColor;
+    self.thirdButton.layer.borderColor = [UIColor colorWithRed: 0.50 green: 0.64 blue: 0.93 alpha: 1.00].CGColor;
+}
+
 
 - (IBAction)authorizeButtonDidTap:(id)sender {
     if([self.loginTextField.text isEqual: @"username"]) {
@@ -71,6 +88,7 @@
     if([self.loginTextField.text isEqual: @"username"] && [self.passwordTextField.text isEqual: @"password"]) {
         self.authorizeButton.layer.opacity = 0.5;
         [self.authorizeButton setUserInteractionEnabled:NO];
+        [self.secureContainer setHidden:NO];
     }
 }
 
