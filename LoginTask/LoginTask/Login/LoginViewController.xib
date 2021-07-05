@@ -18,18 +18,34 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEJ-UB-vWv">
-                    <rect key="frame" x="186" y="442.5" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSSchool" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEJ-UB-vWv">
+                    <rect key="frame" x="126" y="124" width="162.5" height="43"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j4C-t3-XQv">
+                    <rect key="frame" x="36" y="247" width="342" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G9Z-w1-LuQ">
+                    <rect key="frame" x="36" y="311" width="342" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                </textField>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="PEJ-UB-vWv" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="FRq-1t-hu6"/>
-                <constraint firstItem="PEJ-UB-vWv" firstAttribute="centerY" secondItem="Q5M-cg-NOt" secondAttribute="centerY" id="a1l-pV-CrI"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="G9Z-w1-LuQ" secondAttribute="trailing" constant="36" id="4PZ-kk-6I8"/>
+                <constraint firstItem="PEJ-UB-vWv" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="DcU-IH-RZz"/>
+                <constraint firstItem="G9Z-w1-LuQ" firstAttribute="top" secondItem="j4C-t3-XQv" secondAttribute="bottom" constant="30" id="Kds-eX-wVX"/>
+                <constraint firstItem="j4C-t3-XQv" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="36" id="SNT-Ug-UaR"/>
+                <constraint firstItem="j4C-t3-XQv" firstAttribute="top" secondItem="PEJ-UB-vWv" secondAttribute="bottom" constant="80" id="bXs-kB-aJL"/>
+                <constraint firstItem="G9Z-w1-LuQ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="36" id="bgl-pk-cdu"/>
+                <constraint firstItem="PEJ-UB-vWv" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="80" id="gpA-dP-aNX"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="j4C-t3-XQv" secondAttribute="trailing" constant="36" id="hLq-hU-Nx5"/>
             </constraints>
             <point key="canvasLocation" x="-146" y="87"/>
         </view>
