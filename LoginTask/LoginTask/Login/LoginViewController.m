@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *firstButton;
 @property (weak, nonatomic) IBOutlet UIButton *secondButton;
 @property (weak, nonatomic) IBOutlet UIButton *thirdButton;
+@property (weak, nonatomic) IBOutlet UILabel *secureLabel;
 
 @end
 
@@ -65,6 +66,10 @@
     self.firstButton.layer.borderColor = [UIColor colorWithRed: 0.50 green: 0.64 blue: 0.93 alpha: 1.00].CGColor;
     self.secondButton.layer.borderColor = [UIColor colorWithRed: 0.50 green: 0.64 blue: 0.93 alpha: 1.00].CGColor;
     self.thirdButton.layer.borderColor = [UIColor colorWithRed: 0.50 green: 0.64 blue: 0.93 alpha: 1.00].CGColor;
+    
+    self.secureContainer.layer.borderWidth = 2;
+    self.secureContainer.layer.cornerRadius = 10;
+    self.secureContainer.layer.borderColor = [UIColor clearColor].CGColor;
 }
 
 
@@ -90,6 +95,63 @@
         [self.authorizeButton setUserInteractionEnabled:NO];
         [self.secureContainer setHidden:NO];
     }
+}
+
+- (IBAction)firstButtonDidTap:(id)sender {
+    if([[self.secureLabel text] isEqual: @"_"]) {
+        [self.secureLabel setText:@""];
+    }
+    NSMutableString *result = [NSMutableString stringWithString:[self.secureLabel text]];
+    [result appendString:@"1"];
+    [self.secureLabel setText:result];
+    [self validateSecure];
+}
+
+- (IBAction)secondButtonDidTap:(id)sender {
+    if([[self.secureLabel text] isEqual: @"_"]) {
+        [self.secureLabel setText:@""];
+    }
+    NSMutableString *result = [NSMutableString stringWithString:[self.secureLabel text]];
+    [result appendString:@"2"];
+    [self.secureLabel setText:result];
+    [self validateSecure];
+}
+
+- (IBAction)thirdButtonDidTap:(id)sender {
+    if([[self.secureLabel text] isEqual: @"_"]) {
+        [self.secureLabel setText:@""];
+    }
+    NSMutableString *result = [NSMutableString stringWithString:[self.secureLabel text]];
+    [result appendString:@"3"];
+    [self.secureLabel setText:result];
+    [self validateSecure];
+}
+
+- (void)validateSecure {
+    if([[self.secureLabel text] isEqual: @"132"]) {
+        self.secureContainer.layer.borderColor = [UIColor colorWithRed: 0.57 green: 0.78 blue: 0.69 alpha: 1.00].CGColor;
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Welcome" message:@"You are successfuly authorized!" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *refresh = [UIAlertAction actionWithTitle:@"Refresh" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            [self resetState];
+        }];
+        [alert addAction:refresh];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    } else if([[self.secureLabel text] length] == 3)  {
+        self.secureContainer.layer.borderColor = [UIColor colorWithRed: 0.76 green: 0.00 blue: 0.08 alpha: 1.00].CGColor;
+        [self.secureLabel setText:@"_"];
+    }
+}
+
+- (void)resetState {
+    self.authorizeButton.layer.opacity = 1;
+    [self.authorizeButton setUserInteractionEnabled:YES];
+    [self.secureContainer setHidden:YES];
+    [self.secureLabel setText:@"_"];
+    self.loginTextField.layer.borderColor = [UIColor blackColor].CGColor;
+    self.passwordTextField.layer.borderColor = [UIColor blackColor].CGColor;
+    [self.loginTextField setText:@""];
+    [self.passwordTextField setText:@""];
 }
 
 @end
