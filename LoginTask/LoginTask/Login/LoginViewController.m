@@ -26,6 +26,7 @@
     [self setupTextFields];
     [self setupButton];
     [self setupSecureButtons];
+    [self setupGesture];
 }
 
 - (void)setupTextFields {
@@ -152,6 +153,18 @@
     self.passwordTextField.layer.borderColor = [UIColor blackColor].CGColor;
     [self.loginTextField setText:@""];
     [self.passwordTextField setText:@""];
+    [self.loginTextField setEnabled:YES];
+    [self.passwordTextField setEnabled:YES];
+}
+
+- (void)setupGesture {
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                               action:@selector(tapAction)];
+    [self.view addGestureRecognizer:gesture];
+}
+
+- (void)tapAction {
+    [self.view endEditing:true];
 }
 
 @end
